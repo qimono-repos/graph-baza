@@ -1,0 +1,31 @@
+namespace GraphBaza.Schema;
+
+public enum  Genre
+{
+    Action,
+    Adventure,
+    Animation,
+    Biography,
+    Comedy,
+    Crime,
+    Documentary,
+    Drama,
+    Family,
+    Fantasy,
+    FilmNoir,
+    History,
+    Horror,
+    Music,
+    Musical,
+    Mystery,
+    Romance,
+    SciFi,
+    Short,
+    Sport,
+    Superhero,
+    Thriller,
+    War,
+    Western,
+    Marbel,
+    DC,
+}
