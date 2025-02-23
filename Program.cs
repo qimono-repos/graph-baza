@@ -1,6 +1,6 @@
 
 
-using GraphBaza;
+using GraphBaza.Schema;
 
 var builder = WebApplication.CreateBuilder(args);
 
