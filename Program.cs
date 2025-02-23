@@ -1,15 +1,7 @@
 
 
+using GraphBaza;
 
-//using graph-baza.Schema;
-//namespace graph_baza
-//{//
-//    public class Query
-//    {
-//	public string Welcome => "Say hello to QiMono !!!";
-//    }
-
-//    public class Program {
 var builder = WebApplication.CreateBuilder(args);
 
 Console.WriteLine("Add services to the container.");
@@ -19,7 +11,7 @@ Console.WriteLine("Learn more about configuring OpenAPI at https://aka.ms/aspnet
 
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddGraphQLServer();//.AddQueryType<Query>();
+builder.Services.AddGraphQLServer().AddQueryType<Query>();
 
 var app = builder.Build();
 
@@ -29,7 +21,6 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseDeveloperExceptionPage();
-    //app.MapGraphQL("/graphql");
 }
 
 app.UseRouting();
@@ -46,5 +37,3 @@ app.UseEndpoints(endpoints =>
 
 app.Run();
 
-//    }
-//}
