@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphBaza.API", "GraphBaza.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphBaza.Core", "GraphBaza.Core\GraphBaza.Core.csproj", "{561197E4-AEE8-46A0-8E97-D881A986B030}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphBaza.RazorClassLibrary", "GraphBaza.RazorClassLibrary\GraphBaza.RazorClassLibrary.csproj", "{F1DA799C-BE58-4C7F-8899-10293E4B5CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{561197E4-AEE8-46A0-8E97-D881A986B030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{561197E4-AEE8-46A0-8E97-D881A986B030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{561197E4-AEE8-46A0-8E97-D881A986B030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1DA799C-BE58-4C7F-8899-10293E4B5CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1DA799C-BE58-4C7F-8899-10293E4B5CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1DA799C-BE58-4C7F-8899-10293E4B5CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1DA799C-BE58-4C7F-8899-10293E4B5CDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
