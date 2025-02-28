@@ -1,0 +1,253 @@
+{
+  "format": 1,
+  "restore": {
+    "/root/source/repos/qimono-repos/graph-baza/GraphBaza.BlazorWasm/GraphBaza.BlazorWasm.csproj": {}
+  },
+  "projects": {
+    "/root/source/repos/qimono-repos/graph-baza/GraphBaza.BlazorWasm/GraphBaza.BlazorWasm.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.BlazorWasm/GraphBaza.BlazorWasm.csproj",
+        "projectName": "GraphBaza.BlazorWasm",
+        "projectPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.BlazorWasm/GraphBaza.BlazorWasm.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.BlazorWasm/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet9/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/root/source/repos/qimono-repos/graph-baza/GraphBaza.RazorClassLibrary/GraphBaza.RazorClassLibrary.csproj": {
+                "projectPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.RazorClassLibrary/GraphBaza.RazorClassLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.2, 9.0.2]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[9.0.2, 9.0.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "/root/source/repos/qimono-repos/graph-baza/GraphBaza.Core/GraphBaza.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.Core/GraphBaza.Core.csproj",
+        "projectName": "GraphBaza.Core",
+        "projectPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.Core/GraphBaza.Core.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet9/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "HotChocolate.AspNetCore": {
+              "target": "Package",
+              "version": "[15.0.3, )"
+            },
+            "HotChocolate.Data": {
+              "target": "Package",
+              "version": "[15.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/root/source/repos/qimono-repos/graph-baza/GraphBaza.RazorClassLibrary/GraphBaza.RazorClassLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.RazorClassLibrary/GraphBaza.RazorClassLibrary.csproj",
+        "projectName": "GraphBaza.RazorClassLibrary",
+        "projectPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.RazorClassLibrary/GraphBaza.RazorClassLibrary.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.RazorClassLibrary/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet9/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/root/source/repos/qimono-repos/graph-baza/GraphBaza.Core/GraphBaza.Core.csproj": {
+                "projectPath": "/root/source/repos/qimono-repos/graph-baza/GraphBaza.Core/GraphBaza.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
