@@ -1,9 +1,12 @@
-
-<EditForm Model="@todo">
-    <div class="mb-3">
-        <label for="todoItem" class="form-label">Desvio: </label>
-        @* <InputText @bind-Value="todo.TodoItem" class="form-control" id="todoItem"/>
-        <button class="btn btn-primary" @onclick="AddTodo"> + </button>  *@
+<EditForm Model="@todo" OnValidSubmit="AddTodo" FormName="TodoForm">
+    <div class="mb-3 row g-2 align-items-center">
+        <label for="todoItem" class="col-form-label col-3">Search: </label>
+	<div class="col-7">
+             <InputText @bind-Value="todo.Description" class="form-control" id="todoItem"/>
+	</div>
+	<div clas="col-1 d-grid">
+             <button class="btn btn-primary col-2" type="Submit"> + </button>  
+	</div>
     </div>
 </EditForm>
 
@@ -27,7 +30,8 @@
 @code {
     private List<TodoModel> todos = new();
     private TodoModel todo = new TodoModel(){Description= string.Empty,};
-    private void AddTodo(){
+
+    private void AddTodo(EditContext context){
         todos.Add(todo);
         todo = new TodoModel(){Description=string.Empty};
     }
