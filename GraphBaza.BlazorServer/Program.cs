@@ -11,48 +11,33 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
     .AddRazorComponents()
-    .AddInteractiveServerComponents()
-    ;
+    .AddInteractiveServerComponents();
+
 builder.Services.Configure<ForwardedHeadersOptions>(options => {
-    options.ForwardedHeaders = 
-        ForwardedHeaders.XForwardedFor | 
-        ForwardedHeaders.XForwardedProto;
+    options.ForwardedHeaders = ForwardedHeaders.All;
+    options.KnownNetworks.Clear();
+    options.KnownProxies.Clear();
 });
 
-builder.Services
-    .AddGraphQLServer()
-    .AddQueryType<Query>();
+builder.Services.AddGraphQLServer().AddQueryType<Query>();
 
 var app = builder.Build();
 
 app.UseForwardedHeaders();
-//app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAntiforgery();
 
-//app.UseEndpoints(endpoints =>{
+app.MapBlazorHub();  
+app.MapGraphQL(); 
 
-    //endpoints.MapRazorComponents<App>().AddInteractiveServerRenderMode();
-    
-    //endpoints.MapGraphQL();
-    
-    //endpoints.MapGet("/api", async context =>
-    //{	await context.Response.WriteAsync("Say Hello to QiMono !!! \n Use /graphql for API endpoint");});
-//});
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 
 if (!app.Environment.IsDevelopment())
 {
-
-    app.UseDeveloperExceptionPage();
+    app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
-app.MapBlazorHub();
-app.MapGraphQL();
-
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode()
-//.AddAdditionalAssemblies(typeof(GraphBaza.BlazorServer.Components.Pages.Home).Assembly)
-    ;
 
 app.Run();
