@@ -1,28 +1,50 @@
+
+
 using GraphBaza.BlazorServer.Components;
+using GraphBaza.Core.Queries;
+using HotChocolate.AspNetCore;
+using Microsoft.AspNetCore.Components.Endpoints;
+using Microsoft.AspNetCore.Antiforgery;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services
+    .AddRazorComponents()
+    .AddInteractiveServerComponents()
+
+    ;
+
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-
-
+//app.UseHttpsRedirection();
+//app.MapStaticAssets();
+app.UseStaticFiles();
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+app.UseRouting();
 app.UseAntiforgery();
 
-app.MapStaticAssets();
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.UseEndpoints(endpoints =>
+{
+
+    endpoints.MapRazorComponents<App>()
+        .AddInteractiveServerRenderMode();
+    
+    endpoints.MapGraphQL();
+    
+    //endpoints.MapGet("/api", async context =>
+    //{	await context.Response.WriteAsync("Say Hello to QiMono !!! \n Use /graphql for API endpoint");});
+});
+
+if (!app.Environment.IsDevelopment())
+{
+
+    app.UseDeveloperExceptionPage();
+    //app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    app.UseHsts();
+}
 
 app.Run();
