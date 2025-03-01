@@ -1,16 +1,23 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
 <EditForm Model="@todo" OnValidSubmit="AddTodo" FormName="TodoForm">
-    <div class="mb-3 row g-2 align-items-center">
-        <label for="todoItem" class="col-form-label col-3">Search: </label>
-	<div class="col-7">
-             <InputText @bind-Value="todo.Description" class="form-control" id="todoItem"/>
+    <div class="row g-2 align-items-center mb-3">
+	<div class="col-3">
+	    <label for="todoItem" class="form-label">Search:</label>
 	</div>
-	<div clas="col-1 d-grid">
-             <button class="btn btn-primary col-2" type="Submit"> + </button>  
+	<div class="col-7">
+	    <InputText @bind-Value="todo.Description" 
+		    class="form-control" 
+		    id="todoItem" />
+	</div>
+
+	<div class="col-2">
+	    <button class="btn btn-primary w-100" type="submit">+</button>
 	</div>
     </div>
 </EditForm>
 
-<h3>Hallazgos</h3>
+<h3>Match </h3>
 <li class="mb-2">
     @foreach(var todo in todos){
         @if(todo.IsComplete){
@@ -29,7 +36,7 @@
 
 @code {
     private List<TodoModel> todos = new();
-    private TodoModel todo = new TodoModel(){Description= string.Empty,};
+    private TodoModel todo = new TodoModel(){Description= "New Item",};
 
     private void AddTodo(EditContext context){
         todos.Add(todo);

@@ -17,4 +17,23 @@
 ::deep .search-button {
     flex: 0 0 15%;
     white-space: nowrap;
+    border-radius: 50%;
+}
+.form-row * {
+    box-sizing: border-box;
+}
+
+.form-label {
+    margin-bottom: 0;
+}
+
+.form-control {
+    min-width: 100%;
+}
+
+.btn-primary {
+    border-radius: 50%;
+    white-space: nowrap;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
