@@ -37,3 +37,15 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
+::deep .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+::deep .text-muted {
+    color: #6c757d;
+}
+
+::deep .d-flex {
+    display: flex;
+}

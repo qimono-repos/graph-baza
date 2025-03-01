@@ -1,45 +1,74 @@
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 
-<EditForm Model="@todo" OnValidSubmit="AddTodo" FormName="TodoForm">
+<EditForm Model="@CurrentTodo" OnValidSubmit="HandleSubmit" FormName="TodoForm">
+    <DataAnnotationsValidator />
     <div class="row g-2 align-items-center mb-3">
-	<div class="col-3">
-	    <label for="todoItem" class="form-label">Search:</label>
-	</div>
-	<div class="col-7">
-	    <InputText @bind-Value="todo.Description" 
-		    class="form-control" 
-		    id="todoItem" />
-	</div>
-
-	<div class="col-2">
-	    <button class="btn btn-primary w-100" type="submit">+</button>
-	</div>
+        <div class="col-3">
+            <label for="todoItem" class="form-label">Search:</label>
+        </div>
+        <div class="col-7">
+            <InputText @bind-Value="CurrentTodo.Description" 
+                     @bind:event="oninput"
+                     class="form-control"
+                     id="todoItem" />
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary w-100" type="submit">+</button>
+        </div>
     </div>
 </EditForm>
 
-<h3>Match </h3>
-<li class="mb-2">
-    @foreach(var todo in todos){
-        @if(todo.IsComplete){
-            <span style="text-decoration: line-through">
-                @todo.Description
-            </span>
-        } else {
-            @todo.Description
-            <button 
-                class="btn btn-warning btn-sm ms-3"
-                @onClick="()=> todo.IsComplete = true"
-            >Confirmado</button>
-        }
+<h3>Match</h3>
+<ul class="mb-2 list-unstyled">
+    @foreach(var item in Todos)
+    {
+        <li class="mb-2">
+            @if(item.IsComplete)
+            {
+                <span class="text-muted" style="text-decoration: line-through">
+                    @item.Description
+                </span>
+            }
+            else 
+            {
+                <div class="d-flex align-items-center">
+                    <span class="me-2">@item.Description</span>
+                    <button class="btn btn-warning btn-sm"
+                            @onclick="() => MarkComplete(item)">
+                        Confirmado
+                    </button>
+                </div>
+            }
+        </li>
     }
-</li>
+</ul>
 
 @code {
-    private List<TodoModel> todos = new();
-    private TodoModel todo = new TodoModel(){Description= "New Item",};
+    private List<TodoModel> Todos { get; set; } = new();
+    private TodoModel CurrentTodo { get; set; } = new() { Description = "New Item" };
 
-    private void AddTodo(EditContext context){
-        todos.Add(todo);
-        todo = new TodoModel(){Description=string.Empty};
+    private void HandleSubmit()
+    {
+        if (!string.IsNullOrWhiteSpace(CurrentTodo.Description))
+        {
+            Todos.Add(new TodoModel 
+            { 
+                Description = CurrentTodo.Description,
+                IsComplete = false
+            });
+            
+            CurrentTodo = new TodoModel 
+            { 
+                Description = "Add another Item" 
+            };
+        }
+	StateHasChanged();
+    }
+
+    private void MarkComplete(TodoModel item)
+    {
+        item.IsComplete = true;
+        StateHasChanged();
     }
 }
