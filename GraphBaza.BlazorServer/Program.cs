@@ -21,6 +21,9 @@ builder.Services.Configure<ForwardedHeadersOptions>(options => {
 
 builder.Services.AddGraphQLServer().AddQueryType<Query>();
 
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
+
 var app = builder.Build();
 
 app.UseForwardedHeaders();
@@ -31,8 +34,8 @@ app.UseAntiforgery();
 app.MapBlazorHub();  
 app.MapGraphQL(); 
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+//app.MapFallbackToPage("/_Host");
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
 if (!app.Environment.IsDevelopment())
 {
