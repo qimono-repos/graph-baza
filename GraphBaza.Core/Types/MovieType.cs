@@ -15,7 +15,7 @@ public class MovieType//: ObjectType<Movie>
 
     public string Synopsis { get; set; }
 
-    public string CoverUrl { get; set; }
+    public string PosterUrl { get; set; }
 
     public string TrailerUrl { get; set; }
     

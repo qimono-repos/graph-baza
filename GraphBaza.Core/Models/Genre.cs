@@ -2,6 +2,12 @@ namespace GraphBaza.Core.Models;
 
 public enum  Genre
 {
+    Drama,
+    Horror,
+    Documentary,
+    Action,
+    SciFi,
+    /*
     Action,
     Adventure,
     Animation,
@@ -28,4 +34,5 @@ public enum  Genre
     Western,
     Marbel,
     DC,
+    */
 }

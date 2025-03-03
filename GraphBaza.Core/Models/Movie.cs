@@ -8,7 +8,7 @@ public class Movie {
 
     public required string Synopsis { get; set; }
 
-    public required string CoverUrl { get; set; }
+    public required string PosterUrl { get; set; }
 
     public required string TrailerUrl { get; set; }
     

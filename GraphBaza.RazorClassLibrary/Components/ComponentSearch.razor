@@ -4,7 +4,7 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 
-<EditForm Model="@SearchModel" OnValidSubmit="HandleSubmit" FormName="SearchForm">
+<EditForm Model="@SearchModel" OnValidSubmit="HandleSubmit" class="search-form">
     <DataAnnotationsValidator />
     <div class="row g-2 align-items-center mb-3">
         <div class="col-3">
@@ -15,10 +15,10 @@
                      @bind:event="oninput"
                      class="form-control"
                      id="searchItem"
-                     placeholder="Enter search term..." />
+                     placeholder="Enter movie title or keyword..." />
         </div>
         <div class="col-2">
-            <button class="btn btn-primary w-100" type="submit">
+            <button class="btn btn-primary search-button" type="submit">
                 <i class="fas fa-search"></i>
             </button>
         </div>

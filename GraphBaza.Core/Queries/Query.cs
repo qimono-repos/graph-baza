@@ -19,7 +19,7 @@ public class Query
             Id = Guid.NewGuid(),
             Title = "The Matrix",
             Synopsis = "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-            CoverUrl = "https://m.media-amazon.com/images/I/51lJ4G5H7fL._AC_.jpg",
+            PosterUrl = "https://m.media-amazon.com/images/I/51lJ4G5H7fL._AC_.jpg",
             TrailerUrl = "https://www.youtube.com/watch?v=m8e-FF8MsqU",
             ReleaseDate = new DateTime(1999, 3, 31),
             Genre = Genre.Action,
@@ -48,7 +48,7 @@ public class Query
             Id = Guid.NewGuid(),
             Title = "Inception",
             Synopsis = "Dreams within dreams",
-            CoverUrl = "https://upload.wikimedia.org/wikipedia/en/7/7f/Inception_ver3.jpg", // Example cover URL
+            PosterUrl = "https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg",
             ReleaseDate = new DateTime(2010, 7, 16),
             Genre = Genre.SciFi,
 	    Director = new DirectorType(){ Id =Guid.NewGuid(), Name="Christopher Nolan",},
@@ -71,7 +71,7 @@ public class Query
             Id = Guid.NewGuid(),
             Title = "Twisters",
             Synopsis = "A team of storm chasers investigates a series of tornadoes in a small town.",
-            CoverUrl = "https://example.com/twisters_cover.jpg", // Replace with actual cover URL when available
+            PosterUrl= "https://upload.wikimedia.org/wikipedia/en/2/24/Twisters_Official_US_Theatrical_Poster.jpg", 
             ReleaseDate = new DateTime(2024, 6, 14), 
             Genre = Genre.Action,
 	    Director = new DirectorType(){ Id =Guid.NewGuid(), Name="Lee Isaac Chung",},

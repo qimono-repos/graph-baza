@@ -1,0 +1,99 @@
+﻿@attribute [StreamRendering]
+@using System.ComponentModel.DataAnnotations
+
+<div class="movie-container">
+    <h1>🍿 BAZA POP!</h1>
+    <p class="text-muted">New releases for 2025</p>
+
+    <ComponentSearch OnSearch="HandleSearch" />
+
+    @if (movies == null)
+    {
+        <p class="loading-text"><em>Loading...</em></p>
+    }
+    else
+    {
+        <div class="movie-grid">
+            @foreach (var movie in filteredMovies)
+            {
+                <div class="movie-card">
+                    <img src="@movie.PosterUrl" class="movie-poster" alt="@movie.Title poster">
+                    <div class="mt-2">
+                        <span class="genre-emoji">@GetGenreEmoji(movie.Genre)</span>
+                        <small class="text-muted">@movie.ReleaseDate.ToString("MMM dd, yyyy")</small>
+                    </div>
+                    <p class="synopsis">@movie.Synopsis</p>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private MovieType[]? movies;
+    private MovieType[]? filteredMovies;
+    //private string searchTerm = string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+
+        var startDate = DateTime.Now.AddDays(Random.Shared.Next(1,15));
+        movies = Enumerable.Range(1, 5).Select(index => new MovieType {
+            Title = $"Movie {index}",
+            ReleaseDate = startDate.AddDays(index + 30),
+            Genre = (Genre)Random.Shared.Next(0, 5),
+            Synopsis = GenerateSynopsis(),
+            PosterUrl = GetRandomImageUrl()
+        }).ToArray();
+        
+        filteredMovies = movies;
+    }
+
+    private string GetGenreEmoji(Genre genre)
+    {
+        return genre switch {
+            Genre.Drama => "🎭",
+            Genre.Horror => "👻",
+            Genre.Documentary => "📽",
+            Genre.SciFi => "🦸",
+            Genre.Action => "🎬",
+            _ => "🎬"
+        };
+    }
+
+    private string GenerateSynopsis()
+    {
+        var summariesStart = new[] {"The incredible adventure of", "The untold story of", "A journey with", 
+                                   "The most amazing tale about", "Nothing is what it seems in"};
+        var summariesEnd = new[] { "the president's wife", "a formula 1 champion", "a sentient toy car", 
+                                  "a pop star turned spy", "a group of rogue scientists"};
+        return $"{summariesStart[Random.Shared.Next(summariesStart.Length)]} " +
+               $"{summariesEnd[Random.Shared.Next(summariesEnd.Length)]}";
+    }
+
+    private string GetRandomImageUrl()
+    {
+        var images = new[] {
+	    "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg",
+	    "https://upload.wikimedia.org/wikipedia/en/2/24/Twisters_Official_US_Theatrical_Poster.jpg",
+	    "https://upload.wikimedia.org/wikipedia/en/6/6e/Jurassic_World_poster.jpg",
+	    "https://upload.wikimedia.org/wikipedia/en/4/49/Dead_poets_society.jpg",
+	    "https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg",
+        };
+        return images[Random.Shared.Next(images.Length)];
+    }
+    private void HandleSearch(string term)
+    {
+        string searchTerm = term?.Trim() ?? string.Empty;
+
+        if (movies != null)
+        {
+            filteredMovies = string.IsNullOrEmpty(searchTerm)
+                ? movies
+                : movies.Where(m => m.Synopsis.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                      .ToArray();
+
+            StateHasChanged();
+        }
+    }
+}
