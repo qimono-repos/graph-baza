@@ -1,11 +1,26 @@
 
 
-
 .movie-container {
-    background-color: #141414;
+    background: linear-gradient(to bottom right, #2d2d2d, #141414);
     color: white;
-    padding: 20px;
+    padding: 40px 20px 20px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.movie-container h1 {
+    text-align: center;
+    text-color: #8c8c8c;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.movie-container p.text-muted {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #8c8c8c !important;
+    margin-bottom: 2rem;
 }
 
 .movie-grid {

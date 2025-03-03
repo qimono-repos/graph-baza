@@ -7,10 +7,7 @@
 <EditForm Model="@SearchModel" OnValidSubmit="HandleSubmit" class="search-form">
     <DataAnnotationsValidator />
     <div class="row g-2 align-items-center mb-3">
-        <div class="col-3">
-            <label for="searchItem" class="form-label">Search:</label>
-        </div>
-        <div class="col-7">
+        <div class="col-10">
             <InputText @bind-Value="SearchModel.Term"
                      @bind:event="oninput"
                      class="form-control"
