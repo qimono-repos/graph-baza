@@ -16,14 +16,16 @@
         <div class="movie-grid">
             @foreach (var movie in filteredMovies)
             {
-                <div class="movie-card">
-                    <img src="@movie.PosterUrl" class="movie-poster" alt="@movie.Title poster">
-                    <div class="mt-2">
-                        <span class="genre-emoji">@GetGenreEmoji(movie.Genre)</span>
-                        <small class="text-muted">@movie.ReleaseDate.ToString("MMM dd, yyyy")</small>
-                    </div>
-                    <p class="synopsis">@movie.Synopsis</p>
-                </div>
+	    <div class="movie-card">
+		<div class="movie-poster-container">
+		    <img src="@movie.PosterUrl" class="movie-poster" alt="@movie.Title poster">
+		    <div class="poster-overlay">
+			<div class="movie-title">@movie.Synopsis</div>
+			<span class="genre-emoji">@GetGenreEmoji(movie.Genre)</span>
+			<small class="text-muted-release">@movie.ReleaseDate.ToString("MMM dd, yyyy")</small>
+		    </div>
+		</div>
+	    </div>
             }
         </div>
     }
@@ -38,9 +40,9 @@
         await Task.Delay(500);
 
         var startDate = DateTime.Now.AddDays(Random.Shared.Next(1,15));
-        movies = Enumerable.Range(1, 5).Select(index => new MovieType {
+        movies = Enumerable.Range(1, 12).Select(index => new MovieType {
             Title = $"Movie {index}",
-            ReleaseDate = startDate.AddDays(index + 30),
+            ReleaseDate = startDate.AddMonths(index).AddDays(Random.Shared.Next(1,28)),
             Genre = (Genre)Random.Shared.Next(0, 5),
             Synopsis = GenerateSynopsis(),
             PosterUrl = GetRandomImageUrl()
