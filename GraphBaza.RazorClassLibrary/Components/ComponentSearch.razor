@@ -1,0 +1,40 @@
+
+
+@using Model= GraphBaza.Core.Models
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+<EditForm Model="@SearchModel" OnValidSubmit="HandleSubmit" FormName="SearchForm">
+    <DataAnnotationsValidator />
+    <div class="row g-2 align-items-center mb-3">
+        <div class="col-3">
+            <label for="searchItem" class="form-label">Search:</label>
+        </div>
+        <div class="col-7">
+            <InputText @bind-Value="SearchModel.Term"
+                     @bind:event="oninput"
+                     class="form-control"
+                     id="searchItem"
+                     placeholder="Enter search term..." />
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary w-100" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private Model.Search SearchModel { get; set; } = new();
+    //private GraphBaza.Core.Models.Search SearchModel { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<string> OnSearch { get; set; }
+
+    private async Task HandleSubmit()
+    {
+        await OnSearch.InvokeAsync(SearchModel.Term?.Trim());
+    }
+
+}

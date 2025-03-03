@@ -4,13 +4,13 @@ public class Movie {
     
     public Guid Id { get; set; }
 
-    public string Title { get; set; }
+    public required string Title { get; set; }
 
-    public string Synopsis { get; set; }
+    public required string Synopsis { get; set; }
 
-    public string CoverUrl { get; set; }
+    public required string CoverUrl { get; set; }
 
-    public string TrailerUrl { get; set; }
+    public required string TrailerUrl { get; set; }
     
     public DateTime ReleaseDate { get; set; }
 

@@ -1,0 +1,38 @@
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+<EditForm Model="@Current" OnValidSubmit="HandleSubmit" FormName="TodoForm">
+    <DataAnnotationsValidator />
+    <div class="row g-2 align-items-center mb-3">
+        <div class="col-3">
+            <label for="searchItem" class="form-label">Search:</label>
+        </div>
+        <div class="col-7">
+            <InputText @bind-Value="Current.Synopsis" 
+                     @bind:event="oninput"
+                     class="form-control"
+                     id="searchItem" />
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary w-100" type="submit">+</button>
+        </div>
+    </div>
+</EditForm>
+
+
+@code {
+    private List<MovieType> MovieList { get; set; } = new();
+    private MovieType Current { get; set; } = new() { Synopsis = "Movies about adventure" };
+
+    private void HandleSubmit()
+    {
+        if (!string.IsNullOrWhiteSpace(Current.Synopsis ))
+        {
+            Current = new MovieType 
+            { 
+                Synopsis = "keep searching" 
+            };
+        }
+	StateHasChanged();
+    }
+}
