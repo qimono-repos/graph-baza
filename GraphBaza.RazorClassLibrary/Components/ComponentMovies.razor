@@ -1,6 +1,7 @@
 ﻿@attribute [StreamRendering]
 @using System.ComponentModel.DataAnnotations
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 <div class="movie-container">
      <div class="header-container">
         <h1>🍿 BAZA POP 🍿</h1>
@@ -21,30 +22,32 @@
 		    <img src="@movie.PosterUrl" class="movie-poster" alt="@movie.Title poster">
 		    <div class="poster-overlay">
 			<div class="movie-title">@movie.Synopsis</div>
-			<span class="genre-emoji">@GetGenreEmoji(movie.Genre)</span>
-			<small class="text-muted-release">@movie.ReleaseDate.ToString("MMM dd, yyyy")</small>
+			<span class="genre-emoji">
+				<i class="fas fa-film genre-emoji"></i>
+                        </span>
+			    <small class="text-muted-release">@movie.ReleaseDate.ToString("MMM dd, yyyy")</small>
+			</div>
 		    </div>
 		</div>
+		}
 	    </div>
-            }
-        </div>
-    }
-</div>
+	}
+    </div>
 
-@code {
-    private MovieType[]? movies;
-    private MovieType[]? filteredMovies;
-    //private string searchTerm = string.Empty;
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Delay(500);
+    @code {
+	private MovieType[]? movies;
+	private MovieType[]? filteredMovies;
+	//private string searchTerm = string.Empty;
+	protected override async Task OnInitializedAsync()
+	{
+	    await Task.Delay(500);
 
-        var startDate = DateTime.Now.AddDays(Random.Shared.Next(1,15));
-        movies = Enumerable.Range(1, 12).Select(index => new MovieType {
-            Title = $"Movie {index}",
-            ReleaseDate = startDate.AddMonths(index).AddDays(Random.Shared.Next(1,28)),
-            Genre = (Genre)Random.Shared.Next(0, 5),
-            Synopsis = GenerateSynopsis(),
+	    var startDate = DateTime.Now.AddDays(Random.Shared.Next(1,15));
+	    movies = Enumerable.Range(1, 12).Select(index => new MovieType {
+		Title = $"Movie {index}",
+		ReleaseDate = startDate.AddMonths(index).AddDays(Random.Shared.Next(1,28)),
+		Genre = (Genre)Random.Shared.Next(0, 5),
+		Synopsis = GenerateSynopsis(),
             PosterUrl = GetRandomImageUrl()
         }).ToArray();
         
