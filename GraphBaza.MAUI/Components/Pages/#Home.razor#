@@ -1,0 +1,10 @@
+
+
+
+@page "/"
+
+<h1>Hibrid Origin</h1>
+
+This is the starter App.
+<RazorClassLibrary.TodoControl/>
+<RazorClassLibrary.OriginComponent/>
