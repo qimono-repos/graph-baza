@@ -69,6 +69,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\RazorClassLibrary\RazorClassLibrary.csproj" />
+      <ProjectReference Include="..\GraphBaza.RazorClassLibrary\GraphBaza.RazorClassLibrary.csproj" />
     </ItemGroup>
 
 </Project>
